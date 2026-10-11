@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Esta puerta no existe · Umbral</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="assets/svg/simbolo-cal.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/fuentes/fuentes.css">
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/base.css">
+<style>
+  .error {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 28px;
+    padding: 104px clamp(16px, 4vw, 64px) 56px;
+    max-width: 760px;
+  }
+
+  .error__codigo {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    letter-spacing: .12em;
+    color: var(--umbral-piedra);
+    text-transform: uppercase;
+  }
+
+  .error__titulo {
+    font-family: var(--font-titular);
+    font-weight: 900;
+    font-size: clamp(56px, 9vw, 140px);
+    line-height: .85;
+    text-transform: uppercase;
+  }
+
+  .error__titulo span { color: var(--umbral-naranja); }
+
+  .error__texto {
+    font-size: 18px;
+    line-height: 1.55;
+    color: var(--text-on-dark-body);
+    max-width: 480px;
+  }
+
+  .error__botones {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  /* La puerta cerrada, al fondo a la derecha. */
+  .error__puerta {
+    position: fixed;
+    right: -8vw;
+    bottom: 0;
+    width: min(52vw, 620px);
+    opacity: .14;
+    pointer-events: none;
+    z-index: -1;
+  }
+</style>
+</head>
+<body>
+
+<svg class="error__puerta" viewBox="0 0 110 100" aria-hidden="true">
+  <rect width="21" height="100" fill="#EFEBE4"></rect>
+  <path d="M27 0 L31 0 A78 100 0 0 1 109 100 L27 100 Z" fill="#FF5A1F"></path>
+</svg>
+
+<main class="error">
+  <p class="error__codigo">Error 404</p>
+  <h1 class="error__titulo">Esta puerta <span>no existe</span>.</h1>
+  <p class="error__texto">La página que buscas no está aquí. Vuelve al inicio y cruza la que sí lleva a alguna parte.</p>
+  <div class="error__botones">
+    <a class="btn btn--naranja" href="/">Volver al inicio</a>
+    <a class="btn btn--contorno" href="/#contacto">Hablar con nosotros</a>
+  </div>
+</main>
+
+</body>
+</html>

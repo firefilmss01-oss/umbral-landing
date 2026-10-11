@@ -1,0 +1,10 @@
+# Estado local del CLI de Netlify (contiene el id del proyecto, no hace falta versionarlo)
+.netlify/
+
+# Documentación interna del handoff: no se publica
+HANDOFF-README.md
+HANDOFF-ESCENAS.md
+
+# Sistema
+Thumbs.db
+.DS_Store

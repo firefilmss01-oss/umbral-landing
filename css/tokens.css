@@ -1,0 +1,95 @@
+/* UMBRAL · design tokens
+   Las fuentes se cargan localmente desde assets/fuentes/fuentes.css (self-hosted, RGPD).
+   No usar el CDN de Google Fonts en producción. */
+
+:root {
+  /* Base */
+  --umbral-negro: #0A0A0A;
+  --umbral-hormigon: #BFBAB2;
+  --umbral-cal: #EFEBE4;
+  --umbral-naranja: #FF5A1F;
+  --umbral-grafito: #1A1A1A;
+  --umbral-grafito-2: #141414;
+  --umbral-grafito-3: #1E1E1E;
+  --umbral-piedra: #B8B3AA;
+  --umbral-piedra-oscura: #8E8A83;
+  --umbral-niebla: #D6D1C8;
+  --umbral-tierra: #3A3834;
+  --umbral-tierra-2: #2B2925;
+  --umbral-tierra-3: #262524;
+
+  /* Semántico */
+  --surface-page: var(--umbral-negro);
+  --surface-card: var(--umbral-grafito);
+  --surface-sunken: var(--umbral-grafito-2);
+  --surface-light: var(--umbral-cal);
+  --surface-support: var(--umbral-hormigon);
+  --surface-accent: var(--umbral-naranja);
+
+  --text-on-dark: var(--umbral-cal);
+  --text-on-dark-body: var(--umbral-niebla);
+  --text-on-dark-muted: var(--umbral-piedra);
+  --text-on-light: var(--umbral-negro);
+  --text-on-light-body: var(--umbral-tierra);
+  --text-on-support-body: var(--umbral-tierra-2);
+  --text-accent: var(--umbral-naranja);
+
+  --border-on-dark: rgba(239, 235, 228, 0.13);
+  --border-on-dark-strong: var(--umbral-cal);
+  --border-on-light: var(--umbral-negro);
+
+  --action-primary: var(--umbral-naranja);
+  --action-primary-text: var(--umbral-negro);
+  --action-primary-hover: #FF6F3A;
+  --action-primary-press: #E54E16;
+}
+
+:root {
+  --font-logo: 'Unbounded', sans-serif;
+  --font-titular: 'Big Shoulders Display', sans-serif;
+  --font-texto: 'Archivo', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --type-display: 900 clamp(88px, 12vw, 170px)/.83 var(--font-titular);
+  --type-h1: 900 clamp(64px, 8vw, 120px)/.85 var(--font-titular);
+  --type-h2: 900 clamp(48px, 6vw, 88px)/.85 var(--font-titular);
+  --type-h3: 800 clamp(36px, 4vw, 56px)/.9 var(--font-titular);
+  --type-h4: 700 clamp(20px, 2vw, 24px)/1.2 var(--font-texto);
+  --type-lead: 400 clamp(17px, 1.4vw, 19px)/1.5 var(--font-texto);
+  --type-body: 400 17px/1.5 var(--font-texto);
+  --type-small: 400 14px/1.5 var(--font-texto);
+  --type-label: 400 13px/1.3 var(--font-mono);
+  --type-button: 700 15px/1 var(--font-texto);
+
+  --tracking-display: -0.01em;
+  --tracking-label: 0.1em;
+  --tracking-button: 0.04em;
+  --tracking-logo: 0.06em;
+}
+
+:root {
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 40px;
+  --space-8: 56px;
+  --space-9: 88px;
+  --space-10: 120px;
+
+  --page-max: 1440px;
+  --page-gutter: 40px;
+
+  --radius-none: 0;
+  --radius-app-icon: 22.5%;
+
+  --rule-thin: 1px;
+  --rule-strong: 2px;
+  --orange-bar: 12px;
+
+  --ease-door: cubic-bezier(.7, 0, .2, 1);
+  --dur-fast: 160ms;
+  --dur-door: 700ms;
+}

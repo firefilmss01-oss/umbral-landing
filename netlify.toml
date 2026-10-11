@@ -1,0 +1,58 @@
+# UMBRAL · configuración de Netlify
+# Sitio estático, sin build: se publica la carpeta tal cual.
+
+[build]
+  publish = "."
+  command = ""
+
+# ----------------------------------------------------------------
+# La documentación interna no se sirve.
+# ----------------------------------------------------------------
+
+[[redirects]]
+  from = "/*.md"
+  to = "/404.html"
+  status = 404
+
+# ----------------------------------------------------------------
+# Cabeceras
+# ----------------------------------------------------------------
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    # La página no usa cámara, micrófono ni ubicación.
+    Permissions-Policy = "camera=(), microphone=(), geolocation=(), interest-cohort=()"
+
+# El HTML siempre se revalida: así un cambio se ve al recargar.
+[[headers]]
+  for = "/index.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+# CSS y JS: cache corta mientras el sitio está en cambios.
+# Cuando se estabilice, subir a "max-age=31536000, immutable" y añadir
+# un ?v=2 a los <link> y <script> del index.html al publicar cambios.
+[[headers]]
+  for = "/css/*"
+  [headers.values]
+    Cache-Control = "public, max-age=300, must-revalidate"
+
+[[headers]]
+  for = "/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=300, must-revalidate"
+
+# Las fuentes no cambian nunca: cache de un año.
+[[headers]]
+  for = "/assets/fuentes/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Logos e ilustraciones: una semana.
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"

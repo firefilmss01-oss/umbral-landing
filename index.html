@@ -1,0 +1,1265 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Umbral · Marketing digital y tecnología para empresas | Sevilla</title>
+<meta name="description" content="Webs, posicionamiento en Google y en la IA, publicidad, branding y automatización para pymes. Pide tu diagnóstico gratis.">
+<meta name="theme-color" content="#0A0A0A">
+<link rel="canonical" href="https://umbral.es/">
+
+<!-- Open Graph / redes -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_ES">
+<meta property="og:site_name" content="Umbral">
+<meta property="og:title" content="Umbral · Marketing digital y tecnología para empresas">
+<meta property="og:description" content="Webs, posicionamiento en Google y en la IA, publicidad, branding y automatización para pymes. Pide tu diagnóstico gratis.">
+<meta property="og:image" content="assets/logos/logo-horizontal-cal.png">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="assets/svg/simbolo-cal.svg" type="image/svg+xml">
+
+<!-- Las dos fuentes del primer pintado se precargan; el resto llega con fuentes.css -->
+<link rel="preload" href="assets/fuentes/BigShouldersDisplay-900-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fuentes/Archivo-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+
+<link rel="stylesheet" href="assets/fuentes/fuentes.css">
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/escenas.css">
+<link rel="stylesheet" href="css/bloques.css">
+
+<script type="module" src="js/app.js"></script>
+</head>
+<body>
+
+<a class="u-saltar" href="#inicio">Saltar al contenido</a>
+
+<!-- Sprite: la geometría del símbolo, una sola vez. -->
+<svg class="sprite" aria-hidden="true" focusable="false">
+  <symbol id="simbolo" viewBox="0 0 110 100">
+    <rect width="21" height="100" fill="var(--sb, #EFEBE4)"></rect>
+    <path d="M27 0 L31 0 A78 100 0 0 1 109 100 L27 100 Z" fill="var(--sh, #FF5A1F)"></path>
+  </symbol>
+</svg>
+
+<!-- ============================================================
+     1 · NAV — la puerta del logo es la barra de progreso de la historia
+     ============================================================ -->
+<nav class="nav">
+  <a class="nav__logo" href="#inicio" aria-label="Umbral · inicio">
+    <svg class="nav__logo-puerta" viewBox="0 0 110 100" aria-hidden="true">
+      <rect width="21" height="100" fill="#EFEBE4"></rect>
+      <path data-navdoor d="M31 100 Z" fill="#FF5A1F"></path>
+      <line x1="31" y1="100" x2="109" y2="100" stroke="#3A3834" stroke-width="4"></line>
+    </svg>
+    <img class="nav__logo-img" src="assets/logos/logo-horizontal-cal.png" alt="Umbral" width="120" height="20">
+  </a>
+
+  <div class="nav__enlaces" id="nav-enlaces">
+    <a href="#servicios">Servicios</a>
+    <a href="#proyectos">Proyectos</a>
+    <a href="#proceso">Cómo trabajamos</a>
+    <a href="#contacto">Contacto</a>
+    <!-- En móvil la nav esconde el botón naranja: aquí vuelve. -->
+    <a class="nav__cta-movil" href="#contacto">Diagnóstico gratis</a>
+  </div>
+
+  <div class="nav__acciones">
+    <a class="nav__icono" href="#contacto" aria-label="Escríbenos por WhatsApp">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true">
+        <path d="M12 3.2a8.8 8.8 0 0 0-7.6 13.2L3.2 20.8l4.5-1.2A8.8 8.8 0 1 0 12 3.2z"></path>
+        <path d="M9 8.2c.2-.4.5-.5.8-.5h.5l1 2.3-.7.8c.5 1.1 1.4 2 2.5 2.5l.8-.7 2.3 1v.5c0 .3-.2.6-.5.8-.6.4-1.5.5-2.4.2-2-.7-3.6-2.3-4.3-4.3-.3-.9-.2-1.8 0-2.6z"></path>
+      </svg>
+    </a>
+    <a class="nav__cta" href="#contacto">Diagnóstico gratis</a>
+    <button class="nav__hamburguesa" type="button" aria-expanded="false" aria-controls="nav-enlaces" aria-label="Abrir el menú">
+      <span aria-hidden="true"></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Botón fijo: sólo durante las escenas 1–7 -->
+<a class="boton-fijo" data-sticky href="#servicios">
+  <span>Ver servicios y precios</span>
+  <span class="boton-fijo__flecha" aria-hidden="true">↓</span>
+</a>
+
+<main>
+
+<!-- ============================================================
+     2 · HERO — puerta 3D (CSS 3D, no un modelo)
+     ============================================================ -->
+<section class="hero" id="inicio" data-scene="hero" data-mode="leave">
+  <svg class="hero__fondo" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <g fill="none" stroke="#EFEBE4" stroke-opacity=".06" stroke-width="1">
+      <path d="M760 900 m0 -300 A234 300 0 0 1 994 900"></path>
+      <path d="M760 900 m0 -560 A437 560 0 0 1 1197 900"></path>
+      <path d="M760 900 m0 -820 A640 820 0 0 1 1400 900"></path>
+      <path d="M760 900 m0 -1080 A842 1080 0 0 1 1602 900"></path>
+      <line x1="760" y1="0" x2="760" y2="900"></line>
+      <line x1="0" y1="780" x2="1440" y2="780"></line>
+    </g>
+  </svg>
+
+  <div class="hero__texto">
+    <p class="hero__kicker">Marketing digital y tecnología</p>
+
+    <h1 class="hero__h1" data-h1>
+      <span>Más clientes.</span><span>Mejor imagen.</span><span>Menos trabajo manual.</span>
+    </h1>
+
+    <p class="hero__sub">Hacemos que tu empresa aparezca en Google y en la IA, tenga una imagen profesional y funcione con sistemas que trabajan por ti. Todo con un solo equipo.</p>
+
+    <nav class="hero__servicios" aria-label="Nuestros servicios">
+      <a href="#posicionamiento">Posicionamiento</a><span aria-hidden="true">·</span>
+      <a href="#publicidad">Publicidad</a><span aria-hidden="true">·</span>
+      <a href="#webs">Webs</a><span aria-hidden="true">·</span>
+      <a href="#branding">Branding y diseño</a><span aria-hidden="true">·</span>
+      <a href="#automatizacion">Automatización y software</a>
+    </nav>
+
+    <div class="hero__botones">
+      <a class="btn btn--naranja" href="#contacto">Quiero mi diagnóstico gratis</a>
+      <a class="btn btn--contorno" href="#servicios">Ver servicios y precios</a>
+    </div>
+
+    <p class="hero__sellos">
+      <span>Diagnóstico en [48 h]</span><span>Sin permanencia</span><span>España y Brasil</span>
+    </p>
+
+    <div class="hero__caja">
+      <label for="empresa">¿Cómo se llama tu empresa?</label>
+      <div class="hero__campo">
+        <input id="empresa" type="text" name="empresa" placeholder="Ej.: Reformas García" maxlength="32" autocomplete="organization" data-nombre-input>
+        <button type="button" data-cross>Cruzar el umbral ↓</button>
+      </div>
+      <p class="hero__pie">
+        <span>Mira cómo transformamos tu empresa en 30 segundos.</span>
+        <a href="#servicios">Saltar la historia →</a>
+      </p>
+    </div>
+  </div>
+
+  <div class="hero__palco palco" data-stage data-w="560" data-h="700">
+    <div class="palco__lienzo palco__lienzo--560x700">
+      <div class="puerta3d">
+        <div class="puerta3d__suelo"></div>
+
+        <div class="puerta3d__vano">
+          <div class="puerta3d__marco"></div>
+          <div class="puerta3d__marco"></div>
+          <div class="puerta3d__marco"></div>
+          <div class="puerta3d__marco"></div>
+          <div class="puerta3d__vano-suelo"></div>
+          <svg class="simbolo simbolo--negro-cal puerta3d__mini" viewBox="0 0 110 100" aria-hidden="true"><use href="#simbolo"></use></svg>
+        </div>
+
+        <div class="puerta3d__batiente"></div>
+
+        <svg class="puerta3d__luz" viewBox="0 0 560 120" aria-hidden="true">
+          <polygon points="140,0 440,0 560,120 60,120" fill="#FF5A1F" opacity=".22"></polygon>
+          <polygon points="140,0 440,0 500,60 110,60" fill="#FF5A1F" opacity=".3"></polygon>
+        </svg>
+
+        <div class="puerta3d__hoja">
+          <div class="puerta3d__cara"></div>
+          <div class="puerta3d__panel puerta3d__panel--sup"></div>
+          <div class="puerta3d__panel puerta3d__panel--inf"></div>
+          <div class="puerta3d__placa">
+            <span class="puerta3d__placa-num">N.º 01</span>
+            <span class="puerta3d__placa-nombre" data-nombre>Tu Empresa</span>
+          </div>
+          <div class="puerta3d__tirador"></div>
+          <div class="puerta3d__canto"></div>
+        </div>
+
+        <p class="puerta3d__leyenda">Cruza el umbral.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     3 · ESCENA 1 · EL ANTES
+     ============================================================ -->
+<section class="escena" id="historia" data-scene="antes">
+  <div class="escena__sticky">
+    <div class="escena__texto">
+      <p class="etiqueta">01 / 07 · El antes</p>
+      <h2 class="titulo-h2">Así ve internet a <span data-nombre>Tu Empresa</span> hoy.</h2>
+      <p class="parrafo">Buen trabajo, poca visibilidad. Clientes que no te encuentran, mensajes sin responder y todo en Excel.</p>
+    </div>
+
+    <div class="palco" data-stage data-w="720" data-h="560">
+      <div class="palco__lienzo palco__lienzo--720x560 palco__lienzo--persp1500">
+        <div class="antes__suelo">
+          <svg class="antes__plano" viewBox="0 0 560 380" aria-hidden="true">
+            <g fill="#3A3834">
+              <rect x="0" y="0" width="560" height="8"></rect>
+              <rect x="0" y="372" width="230" height="8"></rect>
+              <rect x="330" y="372" width="230" height="8"></rect>
+              <rect x="0" y="0" width="8" height="380"></rect>
+              <rect x="552" y="0" width="8" height="380"></rect>
+              <rect x="300" y="8" width="6" height="150"></rect>
+            </g>
+            <path d="M230 372 A100 100 0 0 1 330 372" fill="none" stroke="#3A3834" stroke-width="1.5" stroke-dasharray="4 4"></path>
+            <g fill="none" stroke="#262524">
+              <line x1="0" y1="190" x2="560" y2="190"></line>
+              <line x1="140" y1="0" x2="140" y2="380"></line>
+              <line x1="420" y1="0" x2="420" y2="380"></line>
+            </g>
+          </svg>
+
+          <!-- Los objetos se levantan como en un libro pop-up -->
+          <div class="antes__obj antes__logo">
+            <span class="antes__logo-circulo" data-nombre>Tu Empresa</span>
+          </div>
+
+          <div class="antes__obj antes__web">
+            <div class="antes__web-barra"><span></span><span></span><span></span></div>
+            <div class="antes__web-cuerpo">
+              <p class="antes__web-titulo">Bienvenidos a <span data-nombre>Tu Empresa</span></p>
+              <div class="antes__web-cols">
+                <div></div>
+                <div class="antes__web-lineas"><i></i><i></i><i></i><i></i></div>
+              </div>
+              <p class="antes__web-pie">visitas: 000127 · © 2011</p>
+            </div>
+          </div>
+
+          <div class="antes__obj antes__movil">
+            <i></i><i></i><i></i><i></i>
+            <span class="antes__contador" data-count>3</span>
+          </div>
+
+          <div class="antes__obj antes__excel">
+            <i></i><i></i><i></i><i></i><i class="es-fuerte"></i><i></i>
+            <i></i><i class="es-fuerte"></i><i></i><i></i><i></i><i></i>
+            <i></i><i></i><i></i><i class="es-fuerte"></i><i></i><i></i>
+            <i></i><i></i><i></i><i></i><i></i><i class="es-fuerte"></i>
+          </div>
+
+          <p class="antes__etiqueta antes__etiqueta--logo">Logo</p>
+          <p class="antes__etiqueta antes__etiqueta--web">Web</p>
+          <p class="antes__etiqueta antes__etiqueta--wa">WhatsApp</p>
+          <p class="antes__etiqueta antes__etiqueta--excel">Excel</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     4 · ESCENA 2 · BRANDING Y DISEÑO — aquí entra el naranja
+     ============================================================ -->
+<section class="escena" id="branding" data-scene="branding">
+  <div class="escena__sticky">
+    <div class="escena__texto">
+      <p class="etiqueta etiqueta--naranja">02 / 07 · Branding y diseño</p>
+      <h2 class="titulo-h2">Primero, una imagen que inspire confianza.</h2>
+      <p class="parrafo">Identidad visual, rebranding y diseño gráfico para que <span data-nombre>Tu Empresa</span> se vea tan profesional como trabaja.</p>
+      <a class="enlace-escena" href="#servicios">Ver Branding y diseño →</a>
+    </div>
+
+    <div class="palco" data-stage data-w="720" data-h="560">
+      <div class="palco__lienzo palco__lienzo--720x560">
+        <span class="branding__generico" data-nombre>Tu Empresa</span>
+
+        <div class="branding__marca">
+          <svg class="branding__simbolo" viewBox="0 0 110 100" aria-hidden="true">
+            <rect class="branding__simbolo-batiente" width="21" height="100" fill="#EFEBE4"></rect>
+            <path class="branding__simbolo-hoja" d="M27 0 L31 0 A78 100 0 0 1 109 100 L27 100 Z" fill="#FF5A1F"></path>
+            <path class="branding__simbolo-arco" d="M31 0 A78 100 0 0 1 109 100" fill="none" stroke="#FF5A1F" stroke-width="2"></path>
+          </svg>
+          <span class="branding__nombre" data-nombre>Tu Empresa</span>
+        </div>
+
+        <p class="branding__leyenda">Identidad visual · Rebranding · Diseño gráfico</p>
+
+        <div class="branding__aplicaciones">
+          <!-- Furgoneta -->
+          <div class="branding__app branding__app--s3">
+            <svg viewBox="0 0 240 130" aria-hidden="true">
+              <path d="M10 100 V30 Q10 22 18 22 H162 L204 52 Q222 58 224 72 V100 Z" fill="#EFEBE4"></path>
+              <path d="M168 30 L198 54 H168 Z" fill="#0A0A0A"></path>
+              <rect x="10" y="84" width="214" height="6" fill="#FF5A1F"></rect>
+              <circle cx="56" cy="102" r="17" fill="#0A0A0A" stroke="#EFEBE4" stroke-width="3"></circle>
+              <circle cx="186" cy="102" r="17" fill="#0A0A0A" stroke="#EFEBE4" stroke-width="3"></circle>
+              <circle cx="56" cy="102" r="6" fill="#EFEBE4"></circle>
+              <circle cx="186" cy="102" r="6" fill="#EFEBE4"></circle>
+              <line x1="0" y1="120" x2="240" y2="120" stroke="#3A3834"></line>
+            </svg>
+            <div class="branding__sello branding__sello--furgoneta">
+              <svg class="simbolo simbolo--negro-naranja" viewBox="0 0 110 100" width="30" height="27" aria-hidden="true"><use href="#simbolo"></use></svg>
+              <span class="branding__sello-nombre" data-nombre>Tu Empresa</span>
+            </div>
+            <p class="etiqueta etiqueta--mini">Furgoneta</p>
+          </div>
+
+          <!-- Uniforme -->
+          <div class="branding__app branding__app--s4">
+            <svg viewBox="0 0 160 160" aria-hidden="true">
+              <path d="M54 18 L30 26 L6 54 L26 74 L40 64 V150 H120 V64 L134 74 L154 54 L130 26 L106 18 Q80 36 54 18 Z" fill="#141414" stroke="#EFEBE4" stroke-width="2" stroke-linejoin="round"></path>
+              <path d="M54 18 Q80 36 106 18" fill="none" stroke="#FF5A1F" stroke-width="3"></path>
+            </svg>
+            <div class="branding__sello branding__sello--uniforme">
+              <svg class="simbolo" viewBox="0 0 110 100" width="22" height="20" aria-hidden="true"><use href="#simbolo"></use></svg>
+              <span class="branding__sello-nombre" data-nombre>Tu Empresa</span>
+            </div>
+            <p class="etiqueta etiqueta--mini">Uniforme</p>
+          </div>
+
+          <!-- Post -->
+          <div class="branding__app branding__app--s5">
+            <div class="branding__post">
+              <svg class="simbolo simbolo--negro-naranja" viewBox="0 0 110 100" aria-hidden="true"><use href="#simbolo"></use></svg>
+              <p class="branding__post-titular">Tu reforma,<br>a tiempo.</p>
+              <p class="branding__post-pie" data-nombre>Tu Empresa</p>
+            </div>
+            <p class="etiqueta etiqueta--mini">Post</p>
+          </div>
+
+          <!-- Folleto -->
+          <div class="branding__app branding__app--s6">
+            <div class="branding__folleto">
+              <div class="branding__folleto-portada">
+                <svg class="simbolo simbolo--negro-cal" viewBox="0 0 110 100" aria-hidden="true"><use href="#simbolo"></use></svg>
+              </div>
+              <i></i><i></i><i></i>
+            </div>
+            <p class="etiqueta etiqueta--mini">Folleto</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     5 · ESCENA 3 · WEBS
+     ============================================================ -->
+<section class="escena" id="webs" data-scene="webs">
+  <div class="escena__sticky">
+    <div class="escena__texto">
+      <p class="etiqueta etiqueta--naranja">03 / 07 · Webs</p>
+      <h2 class="titulo-h2">Una web que convierte visitas en presupuestos.</h2>
+      <p class="parrafo">Rápida, pensada para móvil y con un objetivo: que te contacten.</p>
+      <a class="enlace-escena" href="#servicios">Ver Webs →</a>
+    </div>
+
+    <div class="palco" data-stage data-w="720" data-h="560">
+      <div class="palco__lienzo palco__lienzo--720x560 palco__lienzo--persp1400">
+        <!-- La web antigua se dobla -->
+        <div class="webs__vieja">
+          <div class="webs__panel webs__panel--izq">
+            <div class="es-bloque es-bloque--60"></div><i></i><i class="es-70"></i>
+            <div class="es-hueco"></div>
+          </div>
+          <div class="webs__panel webs__panel--centro">
+            <p class="webs__panel-titulo">Bienvenidos a <span data-nombre>Tu Empresa</span></p>
+            <div class="es-bloque es-bloque--90"></div><i></i><i></i><i class="es-60"></i>
+            <p class="webs__panel-pie">visitas: 000127</p>
+          </div>
+          <div class="webs__panel webs__panel--der">
+            <i></i><i class="es-80"></i>
+            <div class="es-hueco es-hueco--110"></div><i></i>
+          </div>
+        </div>
+
+        <!-- El móvil con la web nueva -->
+        <div class="webs__movil">
+          <div class="webs__notch"></div>
+          <div class="webs__pantalla">
+            <div class="webs__scroll">
+              <div class="webs__header">
+                <div class="webs__header-marca">
+                  <svg class="simbolo simbolo--negro-naranja" viewBox="0 0 110 100" width="20" height="18" aria-hidden="true"><use href="#simbolo"></use></svg>
+                  <span data-nombre>Tu Empresa</span>
+                </div>
+                <div class="webs__menu"><i></i><i></i></div>
+              </div>
+
+              <div class="webs__hero">
+                <svg class="simbolo simbolo--grafito-naranja" viewBox="0 0 110 100" aria-hidden="true"><use href="#simbolo"></use></svg>
+                <p class="webs__hero-titular">Tu reforma,<br>a tiempo.</p>
+                <p class="webs__hero-cta">Pedir presupuesto</p>
+              </div>
+
+              <div class="webs__texto"><i></i><i></i><i></i></div>
+
+              <div class="webs__galeria"><i></i><i></i><i></i><i></i></div>
+
+              <div class="webs__lista">
+                <p class="webs__lista-item">01 · Reforma integral</p>
+                <p class="webs__lista-item">02 · Cocinas y baños</p>
+                <p class="webs__lista-cta">Pedir presupuesto</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="webs__toast">
+          <p class="webs__toast-kicker">+1 solicitud</p>
+          <p class="webs__toast-titulo">Pedir presupuesto</p>
+          <p class="webs__toast-pie">desde la web de <span data-nombre>Tu Empresa</span></p>
+        </div>
+
+        <p class="webs__etiqueta webs__etiqueta--vieja">Web 2011</p>
+        <p class="webs__etiqueta webs__etiqueta--nueva">Web nueva · Móvil primero</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     6 · ESCENA 4 · POSICIONAMIENTO
+     ============================================================ -->
+<section class="escena" id="posicionamiento" data-scene="seo">
+  <div class="escena__sticky">
+    <div class="escena__texto">
+      <p class="etiqueta etiqueta--naranja">04 / 07 · Posicionamiento</p>
+      <h2 class="titulo-h2">Que te encuentren en Google… y en la IA.</h2>
+      <p class="parrafo">SEO para Google y Google Maps. GEO para que ChatGPT y Gemini recomienden a <span data-nombre>Tu Empresa</span>.</p>
+      <a class="enlace-escena" href="#servicios">Ver Posicionamiento →</a>
+    </div>
+
+    <div class="palco" data-stage data-w="720" data-h="560">
+      <div class="palco__lienzo palco__lienzo--720x560">
+        <!-- Buscador -->
+        <div class="seo__buscador">
+          <div class="seo__barra">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#EFEBE4" stroke-width="1.6" aria-hidden="true">
+              <circle cx="10" cy="10" r="6.5"></circle><line x1="15" y1="15" x2="21" y2="21"></line>
+            </svg>
+            <span class="seo__consulta" data-query></span>
+            <span class="seo__cursor"></span>
+          </div>
+
+          <div class="seo__resultados">
+            <div class="seo__fila seo__fila--cliente" data-row="c">
+              <span class="seo__rank" data-rank>7</span>
+              <span class="seo__cliente-datos">
+                <span class="seo__cliente-nombre" data-nombre>Tu Empresa</span>
+                <span class="seo__cliente-meta">reformas · Sevilla</span>
+              </span>
+            </div>
+
+            <div class="seo__fila seo__fila--rival" data-row="0"><span></span><span class="seo__rival-barras"><i style="width:62%"></i><i style="width:40%"></i></span></div>
+            <div class="seo__fila seo__fila--rival" data-row="1"><span></span><span class="seo__rival-barras"><i style="width:48%"></i><i style="width:52%"></i></span></div>
+            <div class="seo__fila seo__fila--rival" data-row="2"><span></span><span class="seo__rival-barras"><i class="es-70"></i><i style="width:36%"></i></span></div>
+            <div class="seo__fila seo__fila--rival" data-row="3"><span></span><span class="seo__rival-barras"><i style="width:55%"></i><i style="width:46%"></i></span></div>
+            <div class="seo__fila seo__fila--rival" data-row="4"><span></span><span class="seo__rival-barras"><i style="width:66%"></i><i style="width:30%"></i></span></div>
+            <div class="seo__fila seo__fila--rival" data-row="5"><span></span><span class="seo__rival-barras"><i style="width:44%"></i><i style="width:50%"></i></span></div>
+
+            <p class="seo__leyenda">Google · Resultados</p>
+          </div>
+        </div>
+
+        <!-- Mapa -->
+        <div class="seo__mapa">
+          <svg viewBox="0 0 300 240" aria-hidden="true">
+            <path d="M-10 170 C 60 150, 90 210, 160 180 S 250 120, 320 140" fill="none" stroke="#262524" stroke-width="18"></path>
+            <g stroke="#3A3834" stroke-width="2" fill="none">
+              <path d="M0 60 L300 90"></path><path d="M0 120 L300 40"></path>
+              <path d="M70 0 L110 240"></path><path d="M200 0 L180 240"></path>
+              <path d="M0 210 L300 230"></path><path d="M140 0 L150 100 L260 240"></path>
+            </g>
+            <g fill="#1E1E1E">
+              <rect x="20" y="20" width="36" height="24"></rect>
+              <rect x="226" y="54" width="40" height="22"></rect>
+              <rect x="90" y="120" width="30" height="30"></rect>
+              <rect x="220" y="160" width="44" height="26"></rect>
+            </g>
+          </svg>
+          <div class="seo__pin">
+            <svg viewBox="0 0 30 40" width="34" height="46" aria-hidden="true">
+              <path d="M15 1 C7 1 1 7 1 15 C1 26 15 39 15 39 C15 39 29 26 29 15 C29 7 23 1 15 1Z" fill="#FF5A1F"></path>
+              <circle cx="15" cy="15" r="5" fill="#0A0A0A"></circle>
+            </svg>
+            <span class="seo__pin-etiqueta" data-nombre>Tu Empresa</span>
+          </div>
+          <p class="seo__mapa-leyenda">Google Maps</p>
+        </div>
+
+        <!-- IA -->
+        <div class="seo__ia">
+          <p class="seo__ia-cabecera">ChatGPT · Gemini</p>
+          <p class="seo__ia-pregunta">¿Quién hace reformas en Sevilla?</p>
+          <div class="seo__ia-respuesta">
+            <span class="seo__ia-avatar" aria-hidden="true">IA</span>
+            <p class="seo__ia-texto" data-ai></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     7 · ESCENA 5 · PUBLICIDAD ONLINE
+     ============================================================ -->
+<section class="escena" id="publicidad" data-scene="ads">
+  <div class="escena__sticky">
+    <div class="escena__texto">
+      <p class="etiqueta etiqueta--naranja">05 / 07 · Publicidad online</p>
+      <h2 class="titulo-h2">Clientes desde la primera semana.</h2>
+      <p class="parrafo">Campañas en Meta, Google y TikTok pensadas para conseguir solicitudes, no solo clics.</p>
+      <a class="enlace-escena" href="#servicios">Ver Publicidad →</a>
+    </div>
+
+    <div class="palco" data-stage data-w="720" data-h="560">
+      <div class="palco__lienzo palco__lienzo--720x560 ads__lienzo">
+        <!-- Las 3 columnas del feed las rellena js/escenas.js (decorativas) -->
+        <div class="ads__col ads__col--1" data-feed aria-hidden="true"></div>
+        <div class="ads__col ads__col--2" data-feed aria-hidden="true"></div>
+        <div class="ads__col ads__col--3" data-feed aria-hidden="true"></div>
+
+        <div class="ads__velo"></div>
+
+        <div class="ads__anuncio">
+          <div class="ads__anuncio-cabecera">
+            <div class="ads__anuncio-perfil">
+              <span class="ads__anuncio-avatar">
+                <svg class="simbolo" viewBox="0 0 110 100" width="14" height="13" aria-hidden="true"><use href="#simbolo"></use></svg>
+              </span>
+              <span class="ads__anuncio-datos">
+                <span class="ads__anuncio-nombre" data-nombre>Tu Empresa</span>
+                <span class="ads__anuncio-tipo">Publicidad</span>
+              </span>
+            </div>
+            <span class="ads__anuncio-mas" aria-hidden="true">···</span>
+          </div>
+
+          <div class="ads__anuncio-imagen">
+            <svg class="simbolo simbolo--tierra-naranja" viewBox="0 0 110 100" aria-hidden="true"><use href="#simbolo"></use></svg>
+            <p class="ads__anuncio-titular">¿Reforma<br>este año?</p>
+          </div>
+
+          <p class="ads__anuncio-cta"><span>Pedir presupuesto</span><span aria-hidden="true">→</span></p>
+          <p class="ads__anuncio-pie">Meta · Google · TikTok</p>
+        </div>
+
+        <div class="ads__avisos">
+          <div class="ads__aviso ads__aviso--s3">
+            <span class="ads__aviso-kicker">Nueva solicitud</span>
+            <span class="ads__aviso-texto">Reforma de cocina</span>
+          </div>
+          <div class="ads__aviso ads__aviso--s4">
+            <span class="ads__aviso-kicker">Nueva solicitud</span>
+            <span class="ads__aviso-texto">Baño completo</span>
+          </div>
+          <div class="ads__aviso ads__aviso--s5">
+            <span class="ads__aviso-kicker">Nueva solicitud</span>
+            <span class="ads__aviso-texto">Reforma integral</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     8 · ESCENA 6 · AUTOMATIZACIÓN Y SOFTWARE
+     ============================================================ -->
+<section class="escena" id="automatizacion" data-scene="auto">
+  <div class="escena__sticky">
+    <div class="escena__texto">
+      <p class="etiqueta etiqueta--naranja">06 / 07 · Automatización y software</p>
+      <h2 class="titulo-h2">Ningún cliente sin respuesta. Nada hecho a mano dos veces.</h2>
+      <p class="parrafo">WhatsApp automático, CRM, IA y sistemas a medida para obras, almacén o presupuestos.</p>
+      <a class="enlace-escena" href="#servicios">Ver Automatización →</a>
+    </div>
+
+    <div class="palco" data-stage data-w="720" data-h="560">
+      <div class="palco__lienzo palco__lienzo--720x560">
+        <svg class="auto__tuberia" viewBox="0 0 720 240" aria-hidden="true">
+          <path d="M70 110 C 170 20, 170 200, 270 110 S 370 20, 450 110 S 550 200, 650 110" fill="none" stroke="#262524" stroke-width="3"></path>
+          <path data-pipe d="M70 110 C 170 20, 170 200, 270 110 S 370 20, 450 110 S 550 200, 650 110" fill="none" stroke="#FF5A1F" stroke-width="4"></path>
+        </svg>
+
+        <div class="auto__estacion auto__estacion--0">
+          <div class="auto__caja" data-lit="0">
+            <div class="auto__velo"></div>
+            <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="#FF5A1F" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"></path></svg>
+          </div>
+          <p class="auto__estacion-label">Mensaje entra</p>
+        </div>
+
+        <div class="auto__estacion auto__estacion--1">
+          <div class="auto__caja" data-lit="1">
+            <div class="auto__velo"></div>
+            <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="#FF5A1F" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="M13 3L5 13h6l-1 8 8-10h-6z"></path></svg>
+          </div>
+          <p class="auto__estacion-label">Respuesta automática</p>
+        </div>
+
+        <div class="auto__estacion auto__estacion--2">
+          <div class="auto__caja" data-lit="2">
+            <div class="auto__velo"></div>
+            <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="#FF5A1F" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="M4 4h7v7H4zM13 4h7v7h-7zM4 13h7v7H4zM13 13h7v7h-7z"></path></svg>
+          </div>
+          <p class="auto__estacion-label">Entra al CRM</p>
+        </div>
+
+        <div class="auto__estacion auto__estacion--3">
+          <div class="auto__caja" data-lit="3">
+            <div class="auto__velo"></div>
+            <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="#FF5A1F" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="M6 16V11a6 6 0 0 1 12 0v5l2 2H4zM10 20h4"></path></svg>
+          </div>
+          <p class="auto__estacion-label">Aviso al equipo</p>
+        </div>
+
+        <p class="auto__etiqueta auto__etiqueta--excel">Excel</p>
+        <p class="auto__etiqueta auto__etiqueta--panel">Panel de <span data-nombre-mayus>TU EMPRESA</span></p>
+
+        <!-- Las 10 celdas las crea y posiciona js/escenas.js -->
+        <div data-celdas aria-hidden="true"></div>
+
+        <svg class="auto__grafico" viewBox="0 0 310 150" aria-hidden="true">
+          <polyline points="16,126 60,104 104,112 148,76 192,84 236,44 290,30" fill="none" stroke="#FF5A1F" stroke-width="3"></polyline>
+          <line x1="16" y1="134" x2="294" y2="134" stroke="#3A3834"></line>
+        </svg>
+
+        <div class="auto__kpis">
+          <div class="auto__kpi"><span class="auto__kpi-label">Solicitudes</span><span class="auto__kpi-valor">+24</span></div>
+          <div class="auto__kpi"><span class="auto__kpi-label">Respuesta</span><span class="auto__kpi-valor">1 min</span></div>
+          <div class="auto__kpi"><span class="auto__kpi-label">Obras activas</span><span class="auto__kpi-valor">7</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     9 · ESCENA 7 · EL DESPUÉS — el arco que barre
+     ============================================================ -->
+<section class="escena" id="despues" data-scene="despues">
+  <div class="escena__sticky">
+    <div class="escena__texto escena__texto--ancho">
+      <p class="etiqueta etiqueta--naranja">07 / 07 · El después</p>
+      <h2 class="titulo-h2">Esto puede ser <span class="es-naranja" data-nombre>Tu Empresa</span> en [X] semanas.</h2>
+      <p class="parrafo">Un solo equipo para todo el camino.</p>
+      <p class="despues__cta"><a class="btn btn--naranja" href="#contacto">Quiero cruzar el umbral <span aria-hidden="true">→</span></a></p>
+    </div>
+
+    <div class="palco" data-stage data-w="720" data-h="560">
+      <div class="palco__lienzo palco__lienzo--720x560 despues__lienzo">
+        <!-- Capa ANTES -->
+        <div class="despues__antes">
+          <span class="despues__generico" data-nombre>Tu Empresa</span>
+          <div class="despues__web">
+            <span>Bienvenidos</span><i></i><i></i><i></i>
+          </div>
+          <div class="despues__movil-viejo">
+            <span class="despues__contador">12</span>
+          </div>
+          <div class="despues__excel">
+            <i></i><i></i><i class="es-fuerte"></i><i></i><i></i>
+            <i></i><i class="es-fuerte"></i><i></i><i></i><i></i>
+            <i></i><i></i><i></i><i class="es-fuerte"></i><i></i>
+          </div>
+          <p class="despues__sello despues__sello--antes">Antes</p>
+        </div>
+
+        <!-- Capa DESPUÉS, revelada por clip-path en forma de sector -->
+        <div class="despues__capa" data-after>
+          <div class="despues__marca">
+            <svg class="simbolo simbolo--negro-naranja" viewBox="0 0 110 100" width="66" height="60" aria-hidden="true"><use href="#simbolo"></use></svg>
+            <span data-nombre>Tu Empresa</span>
+          </div>
+
+          <div class="despues__rank">
+            <span class="despues__rank-num">1</span>
+            <span class="despues__rank-nombre" data-nombre>Tu Empresa</span>
+            <span class="despues__rank-fuente">Google</span>
+          </div>
+
+          <div class="despues__solicitud">
+            <span class="despues__solicitud-kicker">Nueva solicitud</span>
+            <span class="despues__solicitud-texto">Respondida en 1 min por WhatsApp</span>
+          </div>
+
+          <div class="despues__kpis">
+            <div class="despues__kpi"><div class="despues__kpi-label">Solicitudes</div><div class="despues__kpi-valor">+24</div></div>
+            <div class="despues__kpi"><div class="despues__kpi-label">Respuesta</div><div class="despues__kpi-valor">1 min</div></div>
+            <div class="despues__kpi despues__kpi--naranja"><div class="despues__kpi-label">Obras</div><div class="despues__kpi-valor">7</div></div>
+          </div>
+
+          <div class="despues__movil">
+            <div class="despues__movil-pantalla">
+              <div class="despues__movil-header">
+                <svg class="simbolo simbolo--negro-naranja" viewBox="0 0 110 100" width="16" height="15" aria-hidden="true"><use href="#simbolo"></use></svg>
+                <span data-nombre>Tu Empresa</span>
+              </div>
+              <div class="despues__movil-hero">
+                <svg class="simbolo simbolo--grafito-naranja" viewBox="0 0 110 100" aria-hidden="true"><use href="#simbolo"></use></svg>
+                <p class="despues__movil-titular">Tu reforma,<br>a tiempo.</p>
+                <p class="despues__movil-cta">Pedir presupuesto</p>
+              </div>
+              <div class="despues__movil-texto"><i></i><i></i><i></i></div>
+            </div>
+          </div>
+
+          <p class="despues__sello despues__sello--despues">Después</p>
+        </div>
+
+        <div class="despues__batiente"></div>
+        <div class="despues__canto" data-edge></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     10 · SERVICIOS Y PRECIOS — 5 puertas
+     ============================================================ -->
+<section class="servicios" id="servicios" data-scene="servicios" data-mode="enter">
+  <div class="servicios__cabecera">
+    <h2 class="titulo-bloque">Todo lo que tu empresa necesita para crecer.</h2>
+    <p class="parrafo">Contrata un servicio o todo el camino. Precios claros, sin permanencia en los planes mensuales.</p>
+  </div>
+
+  <div class="servicios__rejilla">
+    <!-- 01 -->
+    <article class="servicio" style="--i:0" data-servicio data-need="Más clientes">
+      <div class="servicio__ficha">
+        <div class="servicio__ficha-top"><span class="servicio__num">01</span><span class="servicio__punto"></span></div>
+        <h3 class="servicio__nombre">Posicionamiento</h3>
+        <p class="servicio__frase">Aparece cuando te buscan.</p>
+        <ul class="servicio__incluye">
+          <li><span>SEO en Google</span></li>
+          <li><span>Google Maps y reseñas</span></li>
+          <li><span>GEO para ChatGPT y Gemini</span></li>
+        </ul>
+        <div class="servicio__pie">
+          <p class="servicio__precio">Desde [PRECIO] €/mes</p>
+          <a class="servicio__cta" href="#contacto"><span>Lo quiero</span><span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+      <div class="servicio__hoja" aria-hidden="true">
+        <div class="servicio__hoja-cara">
+          <div class="servicio__hoja-top"><span>01</span><span>Abrir</span></div>
+          <div class="servicio__hoja-panel"></div>
+          <div class="servicio__hoja-tirador"></div>
+          <p class="servicio__hoja-nombre">Posicionamiento</p>
+        </div>
+        <div class="servicio__hoja-canto"></div>
+      </div>
+    </article>
+
+    <!-- 02 -->
+    <article class="servicio" style="--i:1" data-servicio data-need="Más clientes">
+      <div class="servicio__ficha">
+        <div class="servicio__ficha-top"><span class="servicio__num">02</span><span class="servicio__punto"></span></div>
+        <h3 class="servicio__nombre">Publicidad online</h3>
+        <p class="servicio__frase">Clientes desde la primera semana.</p>
+        <ul class="servicio__incluye">
+          <li><span>Meta Ads</span></li>
+          <li><span>Google Ads</span></li>
+          <li><span>TikTok Ads</span></li>
+          <li><span>Informe mensual</span></li>
+        </ul>
+        <div class="servicio__pie">
+          <p class="servicio__precio">Desde [PRECIO] €/mes + inversión</p>
+          <a class="servicio__cta" href="#contacto"><span>Lo quiero</span><span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+      <div class="servicio__hoja" aria-hidden="true">
+        <div class="servicio__hoja-cara">
+          <div class="servicio__hoja-top"><span>02</span><span>Abrir</span></div>
+          <div class="servicio__hoja-panel"></div>
+          <div class="servicio__hoja-tirador"></div>
+          <p class="servicio__hoja-nombre">Publicidad online</p>
+        </div>
+        <div class="servicio__hoja-canto"></div>
+      </div>
+    </article>
+
+    <!-- 03 -->
+    <article class="servicio" style="--i:2" data-servicio data-need="Web o imagen">
+      <div class="servicio__ficha">
+        <div class="servicio__ficha-top"><span class="servicio__num">03</span><span class="servicio__punto"></span></div>
+        <h3 class="servicio__nombre">Webs</h3>
+        <p class="servicio__frase">Una web que trabaja para ti.</p>
+        <ul class="servicio__incluye">
+          <li><span>Web corporativa</span></li>
+          <li><span>Landing pages</span></li>
+          <li><span>Tienda online</span></li>
+          <li><span>Mantenimiento</span></li>
+        </ul>
+        <div class="servicio__pie">
+          <p class="servicio__precio">Desde [PRECIO] €</p>
+          <a class="servicio__cta" href="#contacto"><span>Lo quiero</span><span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+      <div class="servicio__hoja" aria-hidden="true">
+        <div class="servicio__hoja-cara">
+          <div class="servicio__hoja-top"><span>03</span><span>Abrir</span></div>
+          <div class="servicio__hoja-panel"></div>
+          <div class="servicio__hoja-tirador"></div>
+          <p class="servicio__hoja-nombre">Webs</p>
+        </div>
+        <div class="servicio__hoja-canto"></div>
+      </div>
+    </article>
+
+    <!-- 04 -->
+    <article class="servicio" style="--i:3" data-servicio data-need="Web o imagen">
+      <div class="servicio__ficha">
+        <div class="servicio__ficha-top"><span class="servicio__num">04</span><span class="servicio__punto"></span></div>
+        <h3 class="servicio__nombre">Branding y diseño</h3>
+        <p class="servicio__frase">Una imagen que inspira confianza.</p>
+        <ul class="servicio__incluye">
+          <li><span>Identidad visual</span></li>
+          <li><span>Rebranding</span></li>
+          <li><span>Diseño gráfico</span></li>
+          <li><span>Manual de marca</span></li>
+        </ul>
+        <div class="servicio__pie">
+          <p class="servicio__precio">Desde [PRECIO] €</p>
+          <a class="servicio__cta" href="#contacto"><span>Lo quiero</span><span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+      <div class="servicio__hoja" aria-hidden="true">
+        <div class="servicio__hoja-cara">
+          <div class="servicio__hoja-top"><span>04</span><span>Abrir</span></div>
+          <div class="servicio__hoja-panel"></div>
+          <div class="servicio__hoja-tirador"></div>
+          <p class="servicio__hoja-nombre">Branding y diseño</p>
+        </div>
+        <div class="servicio__hoja-canto"></div>
+      </div>
+    </article>
+
+    <!-- 05 -->
+    <article class="servicio" style="--i:4" data-servicio data-need="Automatizar o un sistema">
+      <div class="servicio__ficha">
+        <div class="servicio__ficha-top"><span class="servicio__num">05</span><span class="servicio__punto"></span></div>
+        <h3 class="servicio__nombre">Automatización y software</h3>
+        <p class="servicio__frase">Tu empresa funcionando sola.</p>
+        <ul class="servicio__incluye">
+          <li><span>WhatsApp automático</span></li>
+          <li><span>CRM</span></li>
+          <li><span>Agentes de IA</span></li>
+          <li><span>Sistemas a medida</span></li>
+        </ul>
+        <div class="servicio__pie">
+          <p class="servicio__precio">Según proyecto</p>
+          <a class="servicio__cta" href="#contacto"><span>Hablemos</span><span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+      <div class="servicio__hoja" aria-hidden="true">
+        <div class="servicio__hoja-cara">
+          <div class="servicio__hoja-top"><span>05</span><span>Abrir</span></div>
+          <div class="servicio__hoja-panel"></div>
+          <div class="servicio__hoja-tirador"></div>
+          <p class="servicio__hoja-nombre">Automatización y software</p>
+        </div>
+        <div class="servicio__hoja-canto"></div>
+      </div>
+    </article>
+  </div>
+
+  <p class="servicios__nota">¿No sabes por dónde empezar? <a href="#contacto">Pide el diagnóstico gratis y te lo decimos.</a></p>
+</section>
+
+<!-- ============================================================
+     11 · UN SOLO EQUIPO
+     ============================================================ -->
+<section class="escena" id="equipo" data-scene="equipo">
+  <div class="escena__sticky">
+    <div class="escena__texto escena__texto--ancho">
+      <p class="etiqueta">Un solo equipo</p>
+      <h2 class="equipo__titulo">Deja de coordinar a cinco proveedores.</h2>
+      <p class="parrafo">Tu marca, tu web, tus anuncios y tus sistemas trabajan juntos porque los hace el mismo equipo.</p>
+    </div>
+
+    <div class="palco equipo__palco" data-stage data-w="720" data-h="520">
+      <div class="palco__lienzo palco__lienzo--720x520">
+        <svg class="equipo__lineas" viewBox="0 0 720 520" aria-hidden="true">
+          <g fill="none" stroke="#8E8A83" stroke-width="1.5">
+            <path d="M120 80 C 420 300, 200 420, 580 100"></path>
+            <path d="M600 100 C 300 120, 500 440, 140 440"></path>
+            <path d="M100 260 C 360 40, 480 300, 600 420"></path>
+            <path d="M150 440 C 260 200, 560 300, 360 60"></path>
+            <path d="M360 60 C 120 160, 620 240, 100 260"></path>
+          </g>
+        </svg>
+
+        <div class="equipo__proveedor" style="--x0:20px;--y0:30px;--x1:230px;--y1:150px;--r:-4">
+          <span class="equipo__proveedor-nombre">Agencia SEO</span>
+          <span class="equipo__proveedor-meta">1 contacto · 1 factura</span>
+        </div>
+        <div class="equipo__proveedor" style="--x0:470px;--y0:20px;--x1:250px;--y1:170px;--r:3">
+          <span class="equipo__proveedor-nombre">Diseñador gráfico</span>
+          <span class="equipo__proveedor-meta">1 contacto · 1 factura</span>
+        </div>
+        <div class="equipo__proveedor" style="--x0:10px;--y0:330px;--x1:220px;--y1:210px;--r:5">
+          <span class="equipo__proveedor-nombre">Programador web</span>
+          <span class="equipo__proveedor-meta">1 contacto · 1 factura</span>
+        </div>
+        <div class="equipo__proveedor" style="--x0:480px;--y0:340px;--x1:240px;--y1:230px;--r:-3">
+          <span class="equipo__proveedor-nombre">Gestor de anuncios</span>
+          <span class="equipo__proveedor-meta">1 contacto · 1 factura</span>
+        </div>
+        <div class="equipo__proveedor" style="--x0:250px;--y0:210px;--x1:260px;--y1:190px;--r:2">
+          <span class="equipo__proveedor-nombre">Consultor IT</span>
+          <span class="equipo__proveedor-meta">1 contacto · 1 factura</span>
+        </div>
+
+        <div class="equipo__bloque">
+          <div class="equipo__bloque-marca">
+            <svg class="simbolo" viewBox="0 0 110 100" width="48" height="44" aria-hidden="true"><use href="#simbolo"></use></svg>
+            <span>Umbral</span>
+          </div>
+          <div class="equipo__bloque-lista">
+            <span>1 equipo</span><span>1 estrategia</span><span>1 factura</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     12 · CÓMO TRABAJAMOS — raíl horizontal
+     ============================================================ -->
+<section id="proceso" data-scene="proceso">
+  <div class="proceso__sticky">
+    <div class="proceso__cabecera">
+      <h2 class="proceso__titulo">Cómo trabajamos</h2>
+      <div class="proceso__barra" role="presentation"></div>
+    </div>
+
+    <div class="proceso__viewport">
+      <div class="proceso__rail" data-track>
+        <article class="paso">
+          <div class="paso__numero" aria-hidden="true">01</div>
+          <svg class="paso__puerta" viewBox="0 0 110 100" aria-hidden="true">
+            <rect width="21" height="100" fill="#EFEBE4"></rect>
+            <path data-door="0.02" d="M31 100 Z" fill="#FF5A1F"></path>
+            <line x1="31" y1="100" x2="109" y2="100" stroke="#3A3834" stroke-width="3"></line>
+          </svg>
+          <p class="paso__kicker">Paso 01 · 2%</p>
+          <h3 class="paso__titulo">Diagnóstico gratis</h3>
+          <p class="paso__texto">Analizamos tu web, tu presencia en Google y en la IA, y tus procesos.</p>
+        </article>
+
+        <article class="paso">
+          <div class="paso__numero" aria-hidden="true">02</div>
+          <svg class="paso__puerta" viewBox="0 0 110 100" aria-hidden="true">
+            <rect width="21" height="100" fill="#EFEBE4"></rect>
+            <path data-door="0.33" d="M31 100 Z" fill="#FF5A1F"></path>
+            <line x1="31" y1="100" x2="109" y2="100" stroke="#3A3834" stroke-width="3"></line>
+          </svg>
+          <p class="paso__kicker">Paso 02 · 33%</p>
+          <h3 class="paso__titulo">Propuesta clara</h3>
+          <p class="paso__texto">Qué hacer primero, cuánto cuesta y en qué plazo.</p>
+        </article>
+
+        <article class="paso">
+          <div class="paso__numero" aria-hidden="true">03</div>
+          <svg class="paso__puerta" viewBox="0 0 110 100" aria-hidden="true">
+            <rect width="21" height="100" fill="#EFEBE4"></rect>
+            <path data-door="0.66" d="M31 100 Z" fill="#FF5A1F"></path>
+            <line x1="31" y1="100" x2="109" y2="100" stroke="#3A3834" stroke-width="3"></line>
+          </svg>
+          <p class="paso__kicker">Paso 03 · 66%</p>
+          <h3 class="paso__titulo">Lo construimos</h3>
+          <p class="paso__texto">Con avances que puedes ver.</p>
+        </article>
+
+        <article class="paso">
+          <div class="paso__numero" aria-hidden="true">04</div>
+          <svg class="paso__puerta" viewBox="0 0 110 100" aria-hidden="true">
+            <rect width="21" height="100" fill="#EFEBE4"></rect>
+            <path data-door="1" d="M31 100 Z" fill="#FF5A1F"></path>
+            <line x1="31" y1="100" x2="109" y2="100" stroke="#3A3834" stroke-width="3"></line>
+          </svg>
+          <p class="paso__kicker">Paso 04 · 100%</p>
+          <h3 class="paso__titulo">Crecemos contigo</h3>
+          <p class="paso__texto">Medimos resultados y mejoramos cada mes.</p>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     13 · PROYECTOS — sólo casos reales o marcados "Concepto"
+     ============================================================ -->
+<section class="proyectos" id="proyectos" data-scene="proyectos" data-mode="enter">
+  <div class="proyectos__cabecera">
+    <h2 class="titulo-bloque">Proyectos</h2>
+    <span>Casos reales · o marcados como concepto</span>
+  </div>
+
+  <div class="proyectos__rejilla">
+    <article class="proyecto">
+      <div class="proyecto__imagen">
+        <p class="proyecto__hueco">Foto del proyecto</p>
+        <svg class="proyecto__arco" viewBox="0 0 400 300" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M40 300 L40 60 A300 240 0 0 1 340 300" fill="none" stroke="#FF5A1F" stroke-width="3"></path>
+        </svg>
+        <span class="proyecto__sello">Concepto</span>
+      </div>
+      <div class="proyecto__chips"><span>Automatización y software</span></div>
+      <h3 class="proyecto__nombre">[Gestión de Obras, Sevilla]</h3>
+      <dl class="proyecto__resultado"><dt>Resultado</dt><dd>[RESULTADO]</dd></dl>
+    </article>
+
+    <article class="proyecto">
+      <div class="proyecto__imagen">
+        <p class="proyecto__hueco">Foto del proyecto</p>
+        <svg class="proyecto__arco" viewBox="0 0 400 300" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M40 300 L40 60 A300 240 0 0 1 340 300" fill="none" stroke="#FF5A1F" stroke-width="3"></path>
+        </svg>
+        <span class="proyecto__sello">Concepto</span>
+      </div>
+      <div class="proyecto__chips"><span>Automatización y software</span></div>
+      <h3 class="proyecto__nombre">[Sistema de almacén para empresa de grúas]</h3>
+      <dl class="proyecto__resultado"><dt>Resultado</dt><dd>[RESULTADO]</dd></dl>
+    </article>
+
+    <article class="proyecto">
+      <div class="proyecto__imagen">
+        <p class="proyecto__hueco">Foto del proyecto</p>
+        <svg class="proyecto__arco" viewBox="0 0 400 300" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M40 300 L40 60 A300 240 0 0 1 340 300" fill="none" stroke="#FF5A1F" stroke-width="3"></path>
+        </svg>
+        <span class="proyecto__sello">Concepto</span>
+      </div>
+      <div class="proyecto__chips"><span>Publicidad online</span></div>
+      <h3 class="proyecto__nombre">[Campaña para negocio local]</h3>
+      <dl class="proyecto__resultado"><dt>Resultado</dt><dd>[RESULTADO]</dd></dl>
+    </article>
+  </div>
+</section>
+
+<!-- ============================================================
+     14 · FAQ
+     ============================================================ -->
+<section class="faq" id="faq">
+  <h2 class="titulo-bloque faq__titulo">Preguntas</h2>
+
+  <div class="faq__lista" data-faq>
+    <div class="faq__item">
+      <button class="faq__boton" type="button" aria-expanded="true" aria-controls="faq-1">
+        <svg class="faq__icono" viewBox="0 0 34 30" width="34" height="30" aria-hidden="true">
+          <rect x="0" y="0" width="6" height="30" fill="#EFEBE4"></rect>
+          <line x1="9" y1="30" x2="33" y2="30" stroke="#FF5A1F" stroke-width="3"></line>
+        </svg>
+        <span>¿Y si ya tengo web?</span>
+      </button>
+      <div class="faq__cuerpo" id="faq-1" data-abierta="1">
+        <p>La analizamos en el diagnóstico. Si funciona, la mejoramos; si no, te proponemos una nueva.</p>
+      </div>
+    </div>
+
+    <div class="faq__item">
+      <button class="faq__boton" type="button" aria-expanded="false" aria-controls="faq-2">
+        <svg class="faq__icono" viewBox="0 0 34 30" width="34" height="30" aria-hidden="true">
+          <rect x="0" y="0" width="6" height="30" fill="#EFEBE4"></rect>
+          <line x1="9" y1="30" x2="33" y2="30" stroke="#FF5A1F" stroke-width="3"></line>
+        </svg>
+        <span>¿Puedo contratar solo un servicio?</span>
+      </button>
+      <div class="faq__cuerpo" id="faq-2">
+        <p>Sí. Empieza por lo que más necesites y crece después.</p>
+      </div>
+    </div>
+
+    <div class="faq__item">
+      <button class="faq__boton" type="button" aria-expanded="false" aria-controls="faq-3">
+        <svg class="faq__icono" viewBox="0 0 34 30" width="34" height="30" aria-hidden="true">
+          <rect x="0" y="0" width="6" height="30" fill="#EFEBE4"></rect>
+          <line x1="9" y1="30" x2="33" y2="30" stroke="#FF5A1F" stroke-width="3"></line>
+        </svg>
+        <span>¿Cuánto tarda?</span>
+      </button>
+      <div class="faq__cuerpo" id="faq-3">
+        <p>[PLAZO]. Te damos fechas concretas en la propuesta.</p>
+      </div>
+    </div>
+
+    <div class="faq__item">
+      <button class="faq__boton" type="button" aria-expanded="false" aria-controls="faq-4">
+        <svg class="faq__icono" viewBox="0 0 34 30" width="34" height="30" aria-hidden="true">
+          <rect x="0" y="0" width="6" height="30" fill="#EFEBE4"></rect>
+          <line x1="9" y1="30" x2="33" y2="30" stroke="#FF5A1F" stroke-width="3"></line>
+        </svg>
+        <span>¿Hay permanencia?</span>
+      </button>
+      <div class="faq__cuerpo" id="faq-4">
+        <p>No. Los planes mensuales se cancelan cuando quieras.</p>
+      </div>
+    </div>
+
+    <div class="faq__item">
+      <button class="faq__boton" type="button" aria-expanded="false" aria-controls="faq-5">
+        <svg class="faq__icono" viewBox="0 0 34 30" width="34" height="30" aria-hidden="true">
+          <rect x="0" y="0" width="6" height="30" fill="#EFEBE4"></rect>
+          <line x1="9" y1="30" x2="33" y2="30" stroke="#FF5A1F" stroke-width="3"></line>
+        </svg>
+        <span>¿Trabajáis fuera de Sevilla?</span>
+      </button>
+      <div class="faq__cuerpo" id="faq-5">
+        <p>Sí, en toda España y en Brasil, en remoto.</p>
+      </div>
+    </div>
+
+    <div class="faq__item">
+      <button class="faq__boton" type="button" aria-expanded="false" aria-controls="faq-6">
+        <svg class="faq__icono" viewBox="0 0 34 30" width="34" height="30" aria-hidden="true">
+          <rect x="0" y="0" width="6" height="30" fill="#EFEBE4"></rect>
+          <line x1="9" y1="30" x2="33" y2="30" stroke="#FF5A1F" stroke-width="3"></line>
+        </svg>
+        <span>¿Me garantizáis salir el primero en Google o en ChatGPT?</span>
+      </button>
+      <div class="faq__cuerpo" id="faq-6">
+        <p>Nadie puede garantizarlo. Trabajamos para mejorar tu visibilidad y te enseñamos la evolución cada mes.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     15 · CONTACTO
+     ============================================================ -->
+<section class="contacto" id="contacto">
+  <svg class="simbolo simbolo--negro-naranja contacto__puerta" viewBox="0 0 110 100" aria-hidden="true"><use href="#simbolo"></use></svg>
+
+  <div class="contacto__contenido">
+    <h2 class="contacto__titulo">Cruza el umbral.</h2>
+    <p class="contacto__intro">Pide tu diagnóstico gratis. En [48 h] te decimos qué está frenando a <strong data-nombre>Tu Empresa</strong> y cómo solucionarlo.</p>
+
+    <form class="contacto__form" data-form novalidate>
+      <div class="campo">
+        <label class="campo__label" for="f-empresa">Nombre de tu empresa *</label>
+        <input id="f-empresa" type="text" name="empresa" placeholder="Ej.: Reformas García" autocomplete="organization" required data-nombre-input>
+        <span class="campo__error">Dinos cómo se llama tu empresa.</span>
+      </div>
+
+      <div class="campo">
+        <label class="campo__label" for="f-web">Tu web</label>
+        <input id="f-web" type="url" name="web" placeholder="https://" autocomplete="url">
+      </div>
+
+      <div class="campo" data-chips-campo>
+        <span class="campo__label" id="label-necesidad">¿Qué necesitas? *</span>
+        <div class="chips" role="group" aria-labelledby="label-necesidad" data-chips>
+          <button class="chip" type="button" aria-pressed="false">Más clientes</button>
+          <button class="chip" type="button" aria-pressed="false">Web o imagen</button>
+          <button class="chip" type="button" aria-pressed="false">Automatizar o un sistema</button>
+          <button class="chip" type="button" aria-pressed="false">No lo sé</button>
+        </div>
+        <input type="hidden" name="necesidad" data-necesidad>
+        <span class="campo__error">Elige una opción.</span>
+      </div>
+
+      <div class="campo">
+        <label class="campo__label" for="f-whatsapp">WhatsApp *</label>
+        <input id="f-whatsapp" type="tel" name="whatsapp" placeholder="+34 600 000 000" autocomplete="tel" required>
+        <span class="campo__error">Necesitamos tu WhatsApp para responderte.</span>
+      </div>
+
+      <div class="campo">
+        <label class="consentimiento">
+          <input type="checkbox" name="rgpd" required>
+          <span>Acepto la <a href="#" data-enlace="privacidad">política de privacidad</a>.</span>
+        </label>
+        <span class="campo__error">Tienes que aceptar la política de privacidad.</span>
+      </div>
+
+      <button class="contacto__enviar" type="submit">
+        <span>Quiero mi diagnóstico gratis</span><span aria-hidden="true">→</span>
+      </button>
+
+      <p class="contacto__pie">
+        <span>Te respondemos por WhatsApp. Sin compromiso.</span>
+        <a href="#" data-enlace="whatsapp">Prefiero escribir por WhatsApp</a>
+      </p>
+    </form>
+
+    <!-- Panel post-envío: el propio sitio demuestra la automatización -->
+    <div class="flujo" data-flujo hidden aria-live="polite">
+      <p class="flujo__kicker">Recibido · Así trabaja la automatización</p>
+      <p class="flujo__paso"><span>Tu solicitud entra en nuestro CRM</span></p>
+      <p class="flujo__paso"><span>Recibes la confirmación por WhatsApp</span></p>
+      <p class="flujo__paso"><span>El equipo recibe el aviso</span></p>
+      <p class="flujo__paso"><span>Radar analiza la web de <span data-nombre>Tu Empresa</span></span></p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============================================================
+     16 · FOOTER
+     ============================================================ -->
+<footer class="footer">
+  <div class="footer__superior">
+    <div class="footer__marca">
+      <img src="assets/logos/logo-horizontal-cal.png" alt="Umbral" width="168" height="28">
+      <span class="etiqueta">Marketing digital y tecnología</span>
+    </div>
+    <div class="footer__contacto">
+      <a href="#" data-enlace="email">[email]</a>
+      <a href="#" data-enlace="whatsapp">[WhatsApp]</a>
+      <a href="#" data-enlace="instagram">[Instagram]</a>
+      <a href="#" data-enlace="linkedin">[LinkedIn]</a>
+    </div>
+  </div>
+  <div class="footer__inferior">
+    <div class="footer__legal">
+      <a href="#" data-enlace="aviso-legal">Aviso legal</a>
+      <a href="#" data-enlace="privacidad">Política de privacidad</a>
+      <a href="#" data-enlace="cookies">Política de cookies</a>
+    </div>
+    <span class="footer__paises">España · Brasil</span>
+  </div>
+</footer>
+
+<!-- ============================================================
+     Datos estructurados (README §9)
+     ============================================================ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "@id": "https://umbral.es/#empresa",
+      "name": "Umbral",
+      "description": "Marketing digital y tecnología para empresas: webs, posicionamiento en Google y en la IA, publicidad, branding y automatización.",
+      "url": "https://umbral.es/",
+      "image": "https://umbral.es/assets/logos/logo-horizontal-cal.png",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Sevilla",
+        "addressCountry": "ES"
+      },
+      "areaServed": [
+        { "@type": "Country", "name": "España" },
+        { "@type": "Country", "name": "Brasil" }
+      ],
+      "knowsLanguage": ["es", "pt"]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://umbral.es/#faq",
+      "mainEntity": [
+        { "@type": "Question", "name": "¿Y si ya tengo web?", "acceptedAnswer": { "@type": "Answer", "text": "La analizamos en el diagnóstico. Si funciona, la mejoramos; si no, te proponemos una nueva." } },
+        { "@type": "Question", "name": "¿Puedo contratar solo un servicio?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Empieza por lo que más necesites y crece después." } },
+        { "@type": "Question", "name": "¿Hay permanencia?", "acceptedAnswer": { "@type": "Answer", "text": "No. Los planes mensuales se cancelan cuando quieras." } },
+        { "@type": "Question", "name": "¿Trabajáis fuera de Sevilla?", "acceptedAnswer": { "@type": "Answer", "text": "Sí, en toda España y en Brasil, en remoto." } },
+        { "@type": "Question", "name": "¿Me garantizáis salir el primero en Google o en ChatGPT?", "acceptedAnswer": { "@type": "Answer", "text": "Nadie puede garantizarlo. Trabajamos para mejorar tu visibilidad y te enseñamos la evolución cada mes." } }
+      ]
+    }
+  ]
+}
+</script>
+
+</body>
+</html>
