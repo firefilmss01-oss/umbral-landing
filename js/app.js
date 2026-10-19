@@ -19,18 +19,18 @@ const CONFIG = {
   // Enlaces de contacto y legales. En cuanto tengan valor, sustituyen
   // automáticamente el href y el texto de los [placeholders] del footer.
   enlaces: {
-    email: null,        // ej.: 'mailto:hola@umbral.es'
-    whatsapp: null,     // ej.: 'https://wa.me/34600000000'
+    email: 'mailto:umbralcontactoes@gmail.com',
+    whatsapp: 'https://wa.me/34617492565',
     instagram: null,    // ej.: 'https://instagram.com/umbral'
     linkedin: null,     // ej.: 'https://linkedin.com/company/umbral'
-    privacidad: null,   // ej.: '/politica-de-privacidad'
+    privacidad: 'politica-de-privacidad.html',
     'aviso-legal': null,
     cookies: null,
   },
 
   // Texto visible de los enlaces del footer cuando ya hay URL.
   etiquetas: {
-    email: 'hola@umbral.es',
+    email: 'umbralcontactoes@gmail.com',
     whatsapp: 'WhatsApp',
     instagram: 'Instagram',
     linkedin: 'LinkedIn',
