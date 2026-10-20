@@ -21,7 +21,7 @@ const CONFIG = {
   enlaces: {
     email: 'mailto:umbralcontactoes@gmail.com',
     whatsapp: 'https://wa.me/34617492565',
-    instagram: null,    // ej.: 'https://instagram.com/umbral'
+    instagram: 'https://www.instagram.com/umbralcreative.es/',
     linkedin: null,     // ej.: 'https://linkedin.com/company/umbral'
     privacidad: 'politica-de-privacidad.html',
     'aviso-legal': null,
