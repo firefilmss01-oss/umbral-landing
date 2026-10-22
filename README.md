@@ -122,14 +122,16 @@ por
 
 ### 4. Formulário
 
-Hoje ele **valida e mostra o painel de automação, mas não envia nada** — foi o
-combinado. Para ligar de verdade, existe um ponto único em `js/app.js`:
+Está **ligado ao Web3Forms** (formulário "Umbral Creative · Landing"): cada lead
+chega por e-mail. O ponto único fica em `js/app.js`:
 
 ```js
-endpointFormulario: null,   // → 'https://…' (Formspree, Web3Forms, webhook n8n/Make)
+endpointFormulario: 'https://api.web3forms.com/submit',  // null = só valida, não envia
+claveFormulario: '…',   // access key do Web3Forms (pública por design)
 ```
 
-Com uma URL ali, a função `enviarLead()` faz o POST com `empresa`, `web`,
+Para trocar por outro serviço (Formspree, webhook n8n/Make), mude a URL e deixe
+`claveFormulario: null`. A função `enviarLead()` faz o POST com `empresa`, `web`,
 `necesidad`, `whatsapp` e `origen` (os parâmetros de campanha da URL). Se o
 envio falhar, a página avisa o visitante e oferece o WhatsApp, em vez de perder
 o lead em silêncio.

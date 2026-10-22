@@ -41,7 +41,11 @@ const CONFIG = {
   // automatización (no envía nada). Para conectarlo de verdad, pon aquí
   // la URL del endpoint (Formspree, Web3Forms, un webhook de n8n/Make…)
   // y `enviarLead()` hará el POST con los datos del formulario.
-  endpointFormulario: null,
+  endpointFormulario: 'https://api.web3forms.com/submit',
+
+  // Clave de acceso de Web3Forms (formulario "Umbral Creative · Landing").
+  // Es pública por diseño: sólo permite enviar al correo registrado.
+  claveFormulario: '7c553ef3-9921-4d93-93d0-40e9bba178cc',
 };
 
 // ============================================================
@@ -447,14 +451,28 @@ function elegirNecesidad(valor) {
 async function enviarLead(datos) {
   if (!CONFIG.endpointFormulario) return { simulado: true };
 
+  // Web3Forms exige la clave dentro del cuerpo; asunto y remitente ordenan el correo.
+  const cuerpo = CONFIG.claveFormulario
+    ? {
+        access_key: CONFIG.claveFormulario,
+        subject: 'Nuevo lead · ' + datos.empresa + ' · ' + datos.necesidad,
+        from_name: 'Landing umbralcreative.com',
+        ...datos,
+      }
+    : datos;
+
   const respuesta = await fetch(CONFIG.endpointFormulario, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-    body: JSON.stringify(datos),
+    body: JSON.stringify(cuerpo),
   });
 
-  if (!respuesta.ok) throw new Error('El envío falló: ' + respuesta.status);
-  return respuesta.json().catch(() => ({}));
+  const resultado = await respuesta.json().catch(() => ({}));
+  // Web3Forms puede responder con { success: false } y el motivo en `message`.
+  if (!respuesta.ok || resultado.success === false) {
+    throw new Error('El envío falló: ' + (resultado.message || respuesta.status));
+  }
+  return resultado;
 }
 
 if (formulario) {
