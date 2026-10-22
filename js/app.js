@@ -46,6 +46,10 @@ const CONFIG = {
   // Clave de acceso de Web3Forms (formulario "Umbral Creative · Landing").
   // Es pública por diseño: sólo permite enviar al correo registrado.
   claveFormulario: '7c553ef3-9921-4d93-93d0-40e9bba178cc',
+
+  // Sistema Umbral: el lead entra en la Central y en la línea de tiempo del
+  // cliente. Va en paralelo con el correo; basta que uno funcione.
+  endpointSistema: 'https://jqwvayxbzwdsrgjwftjl.supabase.co/functions/v1/receber-lead',
 };
 
 // ============================================================
@@ -449,8 +453,33 @@ function elegirNecesidad(valor) {
  * y el panel de automatización se muestra igualmente.
  */
 async function enviarLead(datos) {
-  if (!CONFIG.endpointFormulario) return { simulado: true };
+  const envios = [];
+  if (CONFIG.endpointFormulario) envios.push(enviarCorreo(datos));
+  if (CONFIG.endpointSistema) envios.push(enviarSistema(datos));
+  if (!envios.length) return { simulado: true };
 
+  // El lead sólo se pierde si fallan los dos caminos.
+  const resultados = await Promise.allSettled(envios);
+  const fallos = resultados.filter(r => r.status === 'rejected');
+  fallos.forEach(r => console.error('[umbral] un envío del lead falló', r.reason));
+  if (fallos.length === resultados.length) throw fallos[0].reason;
+  return resultados.find(r => r.status === 'fulfilled').value;
+}
+
+async function enviarSistema(datos) {
+  const respuesta = await fetch(CONFIG.endpointSistema, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+    body: JSON.stringify({ formulario: 'contacto', ...datos }),
+  });
+  const resultado = await respuesta.json().catch(() => ({}));
+  if (!respuesta.ok || !resultado.ok) {
+    throw new Error('Sistema: ' + (resultado.erro || respuesta.status));
+  }
+  return resultado;
+}
+
+async function enviarCorreo(datos) {
   // Web3Forms exige la clave dentro del cuerpo; asunto y remitente ordenan el correo.
   const cuerpo = CONFIG.claveFormulario
     ? {
