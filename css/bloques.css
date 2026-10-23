@@ -727,7 +727,9 @@
 
 .campo input[type='text'],
 .campo input[type='url'],
-.campo input[type='tel'] {
+.campo input[type='tel'],
+.campo input[type='email'],
+.campo textarea {
   height: 50px;
   padding: 0 14px;
   border: 1px solid var(--umbral-negro);
@@ -738,9 +740,52 @@
   transition: border-color var(--dur-fast) linear, box-shadow var(--dur-fast) linear;
 }
 
-.campo input:focus {
+/* El área de texto es la que invita a contar: respira más que un campo de una línea. */
+.campo textarea {
+  height: auto;
+  min-height: 112px;
+  padding: 12px 14px;
+  font-family: inherit;
+  line-height: 1.5;
+  resize: vertical;
+}
+
+.campo input:focus,
+.campo textarea:focus {
   border-color: var(--umbral-naranja);
   box-shadow: 0 0 0 2px var(--umbral-naranja);
+}
+
+/* Dos campos lado a lado en escritorio; uno debajo del otro en móvil. */
+.campo-fila {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.campo__ayuda {
+  font-size: 12px;
+  line-height: 1.45;
+  color: var(--umbral-tierra-2);
+}
+
+.campo__opcional {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: .08em;
+  color: var(--umbral-tierra-2);
+}
+
+.campo__contador { font-variant-numeric: tabular-nums; }
+
+/* Trampa para robots: fuera de la vista, pero rellenable por un bot. */
+.campo__trampa {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
 }
 
 /* Mensaje de validación propio, sin depender del popup del navegador. */
@@ -751,7 +796,8 @@
   display: none;
 }
 
-.campo[data-invalido='1'] input { border-color: #C1290B; }
+.campo[data-invalido='1'] input,
+.campo[data-invalido='1'] textarea { border-color: #C1290B; }
 .campo[data-invalido='1'] .campo__error { display: block; }
 
 .chips {
@@ -890,6 +936,12 @@
   .contacto { padding: 80px clamp(16px, 4vw, 64px); }
 
   .contacto__form { padding: 18px; }
+
+  /* En móvil cada campo ocupa su línea: nada de dos columnas estrechas. */
+  .campo-fila { grid-template-columns: minmax(0, 1fr); }
+
+  /* El texto de ejemplo ocupa más líneas en pantalla estrecha: que quepa entero. */
+  .campo textarea { min-height: 168px; }
 
   .servicio { height: 480px; }
 

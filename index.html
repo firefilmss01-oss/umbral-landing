@@ -1136,20 +1136,29 @@
     <p class="contacto__intro">Pide tu diagnóstico gratis. En [48 h] te decimos qué está frenando a <strong data-nombre>Tu Empresa</strong> y cómo solucionarlo.</p>
 
     <form class="contacto__form" data-form novalidate>
-      <div class="campo">
-        <label class="campo__label" for="f-empresa">Nombre de tu empresa *</label>
-        <input id="f-empresa" type="text" name="empresa" placeholder="Ej.: Reformas García" autocomplete="organization" required data-nombre-input>
-        <span class="campo__error">Dinos cómo se llama tu empresa.</span>
+      <div class="campo-fila">
+        <div class="campo">
+          <label class="campo__label" for="f-nombre">Tu nombre *</label>
+          <input id="f-nombre" type="text" name="nombre" placeholder="Ej.: Ana García" autocomplete="name" required>
+          <span class="campo__error">Dinos cómo te llamas.</span>
+        </div>
+
+        <div class="campo">
+          <label class="campo__label" for="f-empresa">Tu empresa *</label>
+          <input id="f-empresa" type="text" name="empresa" placeholder="Ej.: Reformas García" autocomplete="organization" required data-nombre-input>
+          <span class="campo__error">Dinos cómo se llama tu empresa.</span>
+        </div>
       </div>
 
       <div class="campo">
-        <label class="campo__label" for="f-web">Tu web</label>
+        <label class="campo__label" for="f-web">Tu web <span class="campo__opcional">opcional</span></label>
         <input id="f-web" type="url" name="web" placeholder="https://" autocomplete="url">
+        <span class="campo__ayuda">Si todavía no tienes, déjalo en blanco. También es un punto de partida.</span>
       </div>
 
       <div class="campo" data-chips-campo>
         <span class="campo__label" id="label-necesidad">¿Qué necesitas? *</span>
-        <div class="chips" role="group" aria-labelledby="label-necesidad" data-chips>
+        <div class="chips" role="group" aria-labelledby="label-necesidad" data-chips="necesidad">
           <button class="chip" type="button" aria-pressed="false">Más clientes</button>
           <button class="chip" type="button" aria-pressed="false">Web o imagen</button>
           <button class="chip" type="button" aria-pressed="false">Automatizar o un sistema</button>
@@ -1160,9 +1169,30 @@
       </div>
 
       <div class="campo">
-        <label class="campo__label" for="f-whatsapp">WhatsApp *</label>
-        <input id="f-whatsapp" type="tel" name="whatsapp" placeholder="+34 600 000 000" autocomplete="tel" required>
-        <span class="campo__error">Necesitamos tu WhatsApp para responderte.</span>
+        <label class="campo__label" for="f-mensaje">Cuéntanos tu situación <span class="campo__opcional">opcional</span></label>
+        <textarea id="f-mensaje" name="mensaje" rows="4" maxlength="1500" placeholder="Por ejemplo: a qué te dedicas y dónde, cómo te llegan los clientes hoy, qué has probado y qué te gustaría que pasara dentro de seis meses. Escríbelo como se lo contarías a alguien."></textarea>
+        <span class="campo__ayuda">Cuanto más nos cuentes, más concreta será la respuesta. <span class="campo__contador" data-contador>0/1500</span></span>
+      </div>
+
+      <div class="campo" data-chips-campo="cuando">
+        <span class="campo__label" id="label-cuando">¿Cuándo quieres empezar? <span class="campo__opcional">opcional</span></span>
+        <div class="chips" role="group" aria-labelledby="label-cuando" data-chips="cuando">
+          <button class="chip" type="button" aria-pressed="false">Cuanto antes</button>
+          <button class="chip" type="button" aria-pressed="false">Este mes</button>
+          <button class="chip" type="button" aria-pressed="false">En unos meses</button>
+          <button class="chip" type="button" aria-pressed="false">Solo estoy mirando</button>
+        </div>
+        <input type="hidden" name="cuando" data-cuando>
+      </div>
+
+      <div class="campo" data-contacto-campo>
+        <span class="campo__label" id="label-contacto">¿Cómo te respondemos? *</span>
+        <span class="campo__ayuda">Con uno basta. Solemos responder por WhatsApp.</span>
+        <div class="campo-fila" role="group" aria-labelledby="label-contacto">
+          <input id="f-whatsapp" type="tel" name="whatsapp" placeholder="WhatsApp · +34 600 000 000" aria-label="Tu WhatsApp" autocomplete="tel">
+          <input id="f-email" type="email" name="email" placeholder="Email · ana@tuempresa.es" aria-label="Tu email" autocomplete="email">
+        </div>
+        <span class="campo__error">Déjanos al menos una forma de contacto: WhatsApp o email.</span>
       </div>
 
       <div class="campo">
@@ -1173,12 +1203,15 @@
         <span class="campo__error">Tienes que aceptar la política de privacidad.</span>
       </div>
 
+      <!-- Trampa para robots: invisible para personas, los bots la rellenan y el servidor descarta el envío. -->
+      <input class="campo__trampa" type="text" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true">
+
       <button class="contacto__enviar" type="submit">
         <span>Quiero mi diagnóstico gratis</span><span aria-hidden="true">→</span>
       </button>
 
       <p class="contacto__pie">
-        <span>Te respondemos por WhatsApp. Sin compromiso.</span>
+        <span>Te respondemos por donde nos digas. Sin compromiso.</span>
         <a href="#" data-enlace="whatsapp">Prefiero escribir por WhatsApp</a>
       </p>
     </form>

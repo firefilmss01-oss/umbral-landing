@@ -426,24 +426,44 @@ function actualizarNav() {
 const formulario = document.querySelector('[data-form]');
 const campoNecesidad = document.querySelector('[data-necesidad]');
 
-function elegirNecesidad(valor) {
-  const chips = [...document.querySelectorAll('[data-chips] .chip')];
-  for (const chip of chips) {
+/** Marca un chip dentro de su grupo y guarda el valor en el campo oculto. */
+function elegirChip(grupoNombre, valor) {
+  const grupo = document.querySelector(`[data-chips="${grupoNombre}"]`);
+  if (!grupo) return;
+  for (const chip of grupo.querySelectorAll('.chip')) {
     chip.setAttribute('aria-pressed', chip.textContent.trim() === valor ? 'true' : 'false');
   }
-  if (campoNecesidad) campoNecesidad.value = valor;
+  const oculto = document.querySelector(`[data-${grupoNombre}]`);
+  if (oculto) oculto.value = valor;
+}
 
+// Se llama desde las tarjetas de servicio, que llevan su necesidad en data-need.
+function elegirNecesidad(valor) {
+  elegirChip('necesidad', valor);
   const campo = document.querySelector('[data-chips-campo]');
   if (campo) delete campo.dataset.invalido;
 }
 
 (function chips() {
-  const grupo = document.querySelector('[data-chips]');
-  if (!grupo) return;
-  grupo.addEventListener('click', e => {
-    const chip = e.target.closest('.chip');
-    if (chip) elegirNecesidad(chip.textContent.trim());
-  });
+  for (const grupo of document.querySelectorAll('[data-chips]')) {
+    grupo.addEventListener('click', e => {
+      const chip = e.target.closest('.chip');
+      if (!chip) return;
+      const nombre = grupo.dataset.chips;
+      if (nombre === 'necesidad') elegirNecesidad(chip.textContent.trim());
+      else elegirChip(nombre, chip.textContent.trim());
+    });
+  }
+})();
+
+// Contador del área de texto: enseña cuánto espacio queda, sin regañar.
+(function contadorMensaje() {
+  const area = document.querySelector('#f-mensaje');
+  const cuenta = document.querySelector('[data-contador]');
+  if (!area || !cuenta) return;
+  const pintar = () => { cuenta.textContent = `${area.value.length}/${area.maxLength}`; };
+  area.addEventListener('input', pintar);
+  pintar();
 })();
 
 /**
@@ -484,7 +504,7 @@ async function enviarCorreo(datos) {
   const cuerpo = CONFIG.claveFormulario
     ? {
         access_key: CONFIG.claveFormulario,
-        subject: 'Nuevo lead · ' + datos.empresa + ' · ' + datos.necesidad,
+        subject: 'Nuevo lead · ' + datos.empresa + ' · ' + datos.nombre + ' · ' + datos.necesidad,
         from_name: 'Landing umbralcreative.com',
         ...datos,
       }
@@ -525,33 +545,52 @@ if (formulario) {
       if (!valido && !primerError) primerError = campo;
     };
 
+    const nombre = formulario.querySelector('#f-nombre');
     const empresa = formulario.querySelector('#f-empresa');
     const whatsapp = formulario.querySelector('#f-whatsapp');
+    const email = formulario.querySelector('#f-email');
+    const mensaje = formulario.querySelector('#f-mensaje');
+    const cuando = formulario.querySelector('[data-cuando]');
     const rgpd = formulario.querySelector('[name="rgpd"]');
 
+    const tel = whatsapp.value.trim();
+    const correo = email.value.trim();
+    const correoValido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(correo);
+
+    comprobar(nombre.closest('.campo'), !!nombre.value.trim());
     comprobar(empresa.closest('.campo'), !!empresa.value.trim());
     comprobar(
       formulario.querySelector('[data-chips-campo]'),
       !!(campoNecesidad && campoNecesidad.value)
     );
-    comprobar(whatsapp.closest('.campo'), whatsapp.value.trim().length >= 6);
+    // Con un contacto basta, pero si escribe un email tiene que ser un email.
+    comprobar(
+      formulario.querySelector('[data-contacto-campo]'),
+      (tel.length >= 6 || correoValido) && (!correo || correoValido)
+    );
     comprobar(rgpd.closest('.campo'), rgpd.checked);
 
     if (primerError) {
-      const foco = primerError.querySelector('input');
+      const foco = primerError.querySelector('input, textarea');
       if (foco) foco.focus();
       return;
     }
 
     const datos = {
+      nombre: nombre.value.trim(),
       empresa: empresa.value.trim(),
       web: formulario.querySelector('#f-web').value.trim(),
       necesidad: campoNecesidad.value,
-      whatsapp: whatsapp.value.trim(),
+      cuando: cuando ? cuando.value : '',
+      mensaje: mensaje.value.trim(),
+      whatsapp: tel,
+      email: correo,
       origen: location.search || '(directo)',
+      // Trampa para robots: si viene rellena, el servidor descarta el envío.
+      botcheck: formulario.querySelector('[name="botcheck"]').value,
     };
 
-    medir('form_submit', { necesidad: datos.necesidad });
+    medir('form_submit', { necesidad: datos.necesidad, con_mensaje: datos.mensaje.length > 0 });
 
     try {
       await enviarLead(datos);
