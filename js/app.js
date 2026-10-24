@@ -25,7 +25,7 @@ const CONFIG = {
     linkedin: null,     // ej.: 'https://linkedin.com/company/umbral'
     privacidad: 'politica-de-privacidad.html',
     'aviso-legal': null,
-    cookies: null,
+    cookies: 'politica-de-cookies.html',
   },
 
   // Texto visible de los enlaces del footer cuando ya hay URL.
@@ -50,6 +50,10 @@ const CONFIG = {
   // Sistema Umbral: el lead entra en la Central y en la línea de tiempo del
   // cliente. Va en paralelo con el correo; basta que uno funcione.
   endpointSistema: 'https://jqwvayxbzwdsrgjwftjl.supabase.co/functions/v1/receber-lead',
+
+  // Dataset (antes "pixel") de Meta para umbralcreative.com. Es público: aparece en el código
+  // de cualquier web que lo use. null lo apaga por completo, aviso de cookies incluido.
+  pixelMeta: '1098476749847345',
 };
 
 // ============================================================
@@ -66,6 +70,107 @@ function medir(evento, datos = {}) {
     window.gtag('event', evento, datos);
   }
 }
+
+// ============================================================
+// 2b · Cookies y Meta Pixel
+// El pixel nace revocado en el <head>. Aquí sólo se concede el permiso si la persona lo acepta,
+// y se guarda la decisión para no volver a preguntar. Rechazar deja el pixel mudo para siempre
+// (hasta que lo cambie desde la política de cookies).
+// ============================================================
+
+const COOKIES_CLAVE = 'umbral.consentimiento';
+const COOKIES_MESES = 6;
+
+function leerConsentimiento() {
+  try {
+    const v = JSON.parse(localStorage.getItem(COOKIES_CLAVE) || 'null');
+    if (!v || !v.fecha) return null;
+    // Caducado: volvemos a preguntar, como pide el RGPD.
+    if (Date.now() - v.fecha > COOKIES_MESES * 30 * 864e5) return null;
+    return v.acepta === true;
+  } catch { return null; }
+}
+
+function guardarConsentimiento(acepta) {
+  try { localStorage.setItem(COOKIES_CLAVE, JSON.stringify({ acepta, fecha: Date.now() })); } catch { /* sin almacenamiento */ }
+}
+
+/** Id único por evento: el navegador y el servidor mandan el MISMO, y Meta los cuenta una sola vez. */
+function idEvento() {
+  try { return crypto.randomUUID(); } catch { return 'ev-' + Date.now() + '-' + Math.random().toString(36).slice(2, 10); }
+}
+
+const pixelListo = () => typeof window.fbq === 'function';
+
+/** Un evento del pixel. Sin permiso no hay fbq, así que no hace nada y no sale ninguna petición. */
+function pixel(evento, datos = {}, idUnico) {
+  if (!pixelListo()) return;
+  window.fbq('track', evento, datos, idUnico ? { eventID: idUnico } : undefined);
+}
+
+/** Carga el pixel. Se llama SÓLO con permiso: hasta aquí el navegador nunca contactó con Meta. */
+function concederPixel() {
+  if (!CONFIG.pixelMeta || pixelListo()) return;
+  /* eslint-disable */
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+  n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(
+    window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+  /* eslint-enable */
+  window.fbq('init', CONFIG.pixelMeta);
+  window.fbq('track', 'PageView');
+}
+
+(function cookies() {
+  const aviso = document.querySelector('[data-cookies]');
+  const decidido = leerConsentimiento();
+
+  if (decidido === true) concederPixel();
+  else if (decidido === null && aviso) aviso.hidden = false;   // sin decisión: preguntamos
+
+  const responder = (acepta) => {
+    guardarConsentimiento(acepta);
+    if (aviso) aviso.hidden = true;
+    if (acepta) concederPixel();
+    medir('consentimiento_cookies', { acepta });
+  };
+
+  aviso?.querySelector('[data-cookies-aceptar]')?.addEventListener('click', () => responder(true));
+  aviso?.querySelector('[data-cookies-rechazar]')?.addEventListener('click', () => responder(false));
+
+  // Botón "cambiar mis preferencias" de la política de cookies.
+  document.querySelector('[data-abrir-cookies]')?.addEventListener('click', () => {
+    try { localStorage.removeItem(COOKIES_CLAVE); } catch { /* sin almacenamiento */ }
+    location.href = 'index.html';
+  });
+})();
+
+// ViewContent: llegó hasta los servicios y precios. Separa a quien mira la portada de quien
+// se interesó de verdad — y de ahí salen los públicos que valen la pena.
+(function verPrecios() {
+  const seccion = document.querySelector('#servicios');
+  if (!seccion || typeof IntersectionObserver !== 'function') return;
+  let visto = false;
+  const obs = new IntersectionObserver((entradas) => {
+    for (const e of entradas) {
+      if (!e.isIntersecting || visto) continue;
+      visto = true;
+      obs.disconnect();
+      pixel('ViewContent', { content_name: 'servicios y precios', content_category: 'umbralcreative' });
+      medir('ver_precios');
+    }
+  }, { threshold: 0.4 });
+  obs.observe(seccion);
+})();
+
+// Contact: se fue por WhatsApp en vez del formulario. También es un lead, por otro camino.
+document.addEventListener('click', (e) => {
+  const enlace = e.target.closest('a[href*="wa.me"], a[data-enlace="whatsapp"]');
+  if (!enlace) return;
+  pixel('Contact', { content_name: 'whatsapp', content_category: 'umbralcreative' });
+  medir('clic_whatsapp');
+});
 
 // ============================================================
 // 3 · El nombre de la empresa
@@ -586,6 +691,9 @@ if (formulario) {
       whatsapp: tel,
       email: correo,
       origen: location.search || '(directo)',
+      // Mismo id para el pixel (navegador) y para la API de Conversiones (servidor):
+      // así Meta cuenta UN lead, no dos.
+      event_id: idEvento(),
       // Trampa para robots: si viene rellena, el servidor descarta el envío.
       botcheck: formulario.querySelector('[name="botcheck"]').value,
     };
@@ -605,6 +713,10 @@ if (formulario) {
       }
       return;
     }
+
+    // Lead SÓLO aquí: el envío ya salió bien. Dispararlo en el clic contaría leads que no existieron
+    // y la campaña optimizaría hacia gente que nunca llegó a enviar.
+    pixel('Lead', { content_name: datos.necesidad || 'formulario', content_category: 'umbralcreative' }, datos.event_id);
 
     // El propio sitio demuestra la automatización: 4 pasos cada 650ms.
     formulario.hidden = true;

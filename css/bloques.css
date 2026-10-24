@@ -991,3 +991,68 @@
 .servicio__nombre,
 .servicio__hoja-nombre,
 .proyecto__nombre { line-height: .95; }
+
+/* ---------- aviso de cookies ---------- */
+/* Fijo abajo y por encima de todo, pero sin tapar la página: es una barra, no un muro.
+   Aceptar y rechazar tienen el mismo peso visual a propósito (RGPD: rechazar tan fácil como aceptar). */
+.cookies {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9000;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 14px clamp(16px, 4vw, 48px);
+  background: var(--umbral-negro);
+  border-top: 2px solid var(--umbral-naranja);
+  color: var(--umbral-cal);
+}
+
+.cookies[hidden] { display: none; }
+
+.cookies__texto {
+  margin: 0;
+  flex: 1 1 auto;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.cookies__texto a { color: var(--umbral-cal); text-decoration: underline; }
+
+.cookies__botones { display: flex; gap: 8px; flex: 0 0 auto; }
+
+.cookies__btn {
+  height: 42px;
+  padding: 0 20px;
+  border: 1px solid var(--umbral-cal);
+  background: transparent;
+  color: var(--umbral-cal);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background var(--dur-fast) linear, color var(--dur-fast) linear;
+}
+
+.cookies__btn:hover { background: var(--umbral-cal); color: var(--umbral-negro); }
+
+
+
+/* Botón para reabrir la elección desde la política de cookies. */
+.btn-cookies {
+  height: 40px;
+  padding: 0 16px;
+  border: 1px solid var(--umbral-negro);
+  background: transparent;
+  color: var(--umbral-negro);
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.btn-cookies:hover { background: var(--umbral-negro); color: var(--umbral-cal); }
+
+@media (max-width: 760px) {
+  .cookies { flex-direction: column; align-items: stretch; gap: 12px; }
+  .cookies__botones > .cookies__btn { flex: 1; min-height: 44px; }
+}

@@ -31,10 +31,29 @@
 <link rel="stylesheet" href="css/bloques.css">
 
 <script type="module" src="js/app.js"></script>
+
+<!-- El Meta Pixel NO se carga aquí a propósito. Cargar fbevents.js ya revela la IP de quien visita
+     a Meta, y eso en España necesita permiso previo (LSSI art. 22.2 + RGPD). El script se inyecta
+     desde js/app.js sólo después de que la persona acepte: antes de eso el navegador no contacta
+     con Meta ni una vez. El id del dataset vive en CONFIG.pixelMeta. -->
 </head>
 <body>
 
 <a class="u-saltar" href="#inicio">Saltar al contenido</a>
+
+<!-- Aviso de cookies. Aceptar y rechazar pesan lo mismo a propósito: el RGPD exige que
+     rechazar sea tan fácil como aceptar. Se muestra sólo si aún no hay decisión guardada. -->
+<div class="cookies" data-cookies hidden role="dialog" aria-label="Aviso de cookies" aria-live="polite">
+  <p class="cookies__texto">
+    Usamos cookies de <strong>Meta</strong> para saber qué anuncios traen clientes de verdad y no gastar tu dinero —
+    ni el nuestro— en los que no. Sin tu permiso no se cargan.
+    <a href="politica-de-cookies.html">Ver qué guardamos</a>.
+  </p>
+  <div class="cookies__botones">
+    <button type="button" class="cookies__btn" data-cookies-rechazar>Rechazar</button>
+    <button type="button" class="cookies__btn" data-cookies-aceptar>Aceptar</button>
+  </div>
+</div>
 
 <!-- Sprite: la geometría del símbolo, una sola vez. -->
 <svg class="sprite" aria-hidden="true" focusable="false">
